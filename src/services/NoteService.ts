@@ -16,6 +16,7 @@ export class NoteServiceImpl implements NoteService {
   constructor(private readonly repo: NoteRepository) {}
 
   createNote(data: NewNote): Note {
+    // Hecho Garcia: EJERCICIO 1: ciclo completo (test + implementación).
     // 🔴🟢 EJERCICIO 6 (a hacer más adelante, ustedes escriben el test):
     // una vez que este método esté en verde, agréguenle: si `data.pinned`
     // es true, además deben llamar a notify(nota) del módulo
@@ -27,7 +28,7 @@ export class NoteServiceImpl implements NoteService {
   }
 
   listNotes(): Note[] {
-    // 🟢 EJERCICIO 2: esta función YA FUNCIONA.
+    // HECHO Garcia:🟢 EJERCICIO 2: esta función YA FUNCIONA.
     // No existe todavía el archivo tests/unit/noteService.list.test.ts:
     // escríbanlo ustedes cubriendo al menos "lista vacía" y "varias notas".
     return this.repo.findAll();
