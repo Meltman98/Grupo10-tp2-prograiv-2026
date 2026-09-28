@@ -34,7 +34,7 @@ export class NoteServiceImpl implements NoteService {
   }
 
   getNote(id: number): Note | undefined {
-    // Hecho Garcia:🔴🟢 EJERCICIO 3: ciclo completo (test + implementación).
+    //🔴🟢 EJERCICIO 3: ciclo completo (test + implementación).
     return this.repo.findById(id);
   }
 
