@@ -25,6 +25,13 @@ export class NoteServiceImpl implements NoteService {
     return this.repo.create(data); 
     // ahora mismo no hace nada más que delegar en el repo, pero luego
     // agregaremos la notificación si la nota es "pinned".
+    // 🔴🟢 EJERCICIO 6: si la nota se crea con pinned: true,
+    // se llama a notify(nota) del modulo notificationService.
+    const note = this.repo.create(data);
+    if (data.pinned) {
+      notify(note);
+    }
+    return note;
   }
 
   listNotes(): Note[] {
