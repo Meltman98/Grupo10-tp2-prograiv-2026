@@ -16,20 +16,18 @@ export class NoteServiceImpl implements NoteService {
   constructor(private readonly repo: NoteRepository) {}
 
   createNote(data: NewNote): Note {
-    // 🔴 EJERCICIO 1 (dado en rojo en tests/unit/noteService.create.test.ts)
-    // Implementen la creación básica: crear la nota en el repositorio y
-    // devolverla. Con esto alcanza para que el test de la cátedra pase.
-    //
-    // 🔴🟢 EJERCICIO 6 (a hacer más adelante, ustedes escriben el test):
-    // una vez que este método esté en verde, agréguenle: si `data.pinned`
-    // es true, además deben llamar a notify(nota) del módulo
-    // notificationService. En el test, simulen ese módulo completo con
-    // vi.mock y verifiquen la llamada con toHaveBeenCalledWith.
-    throw new Error('createNote: no implementado (Ejercicio 1)');
+    // Hecho Garcia: EJERCICIO 1: ciclo completo (test + implementación).
+    // Hecho Robles: EJERCICIO 6: si la nota se crea con pinned: true,
+    // se llama a notify(nota) del modulo notificationService.
+    const note = this.repo.create(data);
+    if (data.pinned) {
+      notify(note);
+    }
+    return note;
   }
 
   listNotes(): Note[] {
-    // 🟢 EJERCICIO 2: esta función YA FUNCIONA.
+    // HECHO Garcia:🟢 EJERCICIO 2: esta función YA FUNCIONA.
     // No existe todavía el archivo tests/unit/noteService.list.test.ts:
     // escríbanlo ustedes cubriendo al menos "lista vacía" y "varias notas".
     return this.repo.findAll();
