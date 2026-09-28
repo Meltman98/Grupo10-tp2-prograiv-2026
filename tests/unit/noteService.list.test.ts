@@ -12,7 +12,7 @@ describe('NoteService - listNotes (Ejercicio 2)', () => { //Describe se usa para
     service = new NoteServiceImpl(repo); //Crea una instancia de la clase NoteServiceImpl, pasando el repositorio como argumento.
   });
 
-  it('devuelve una lista vacía cuando no hay notas', () => { //it es para definir un test individual.
+  it('devuelve una lista vacía cuando no hay notas', () => {
     expect(service.listNotes()).toEqual([]);
   });
 
